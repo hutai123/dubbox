@@ -194,7 +194,7 @@ host: 192.168.1.100:8888
 user-agent: Apache-HttpClient/4.2.1 (java 1.5)
 </code></pre><pre><code>The contents of request body is: 
 {"id":1,"name":"dang"}
-</code></pre><p>打开HTTP日志输出后，除了正常日志输出的性能开销外，也会在比如HTTP请求解析时产生额外的开销，因为需要建立额外的内存缓冲区来为日志的输出做数据准备。</p><h3>输入参数的校验</h3><p>dubbo的rest支持采用Java标准的bean validation annotation（JSR 303)来做输入校验<a href=http://beanvalidation.org/%E3%80%82>http://beanvalidation.org/。</a></p><p>为了和其他dubbo远程调用协议保持一致，在rest中作校验的annotation必须放在服务的接口上，例如：</p><div class="highlight highlight-java"><pre><span class=pl-s>public</span> <span class=pl-s>interface</span> <span class=pl-en>UserService</span> {
+</code></pre><p>打开HTTP日志输出后，除了正常日志输出的性能开销外，也会在比如HTTP请求解析时产生额外的开销，因为需要建立额外的内存缓冲区来为日志的输出做数据准备。</p><h3>输入参数的校验</h3><p>dubbo的rest支持采用Java标准的bean validation annotation（JSR 303)来做输入校验<a href="http://beanvalidation.org/">http://beanvalidation.org/</a></p><p>为了和其他dubbo远程调用协议保持一致，在rest中作校验的annotation必须放在服务的接口上，例如：</p><div class="highlight highlight-java"><pre><span class=pl-s>public</span> <span class=pl-s>interface</span> <span class=pl-en>UserService</span> {
 
     <span class=pl-stj>User</span> <span class=pl-en>getUser</span>(<span class=pl-st>@Min</span>(<span class=pl-c1>value</span><span class=pl-k>=</span><span class=pl-c1>1L</span>, <span class=pl-c1>message</span><span class=pl-k>=</span><span class=pl-s1><span class=pl-pds>"</span>User ID must be greater than 1<span class=pl-pds>"</span></span>) <span class=pl-stj>Long</span> <span class=pl-v>id</span>);
 }
