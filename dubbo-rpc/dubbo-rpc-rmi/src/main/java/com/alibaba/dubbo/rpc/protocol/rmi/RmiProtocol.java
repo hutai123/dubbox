@@ -15,17 +15,15 @@
  */
 package com.alibaba.dubbo.rpc.protocol.rmi;
 
-import java.io.IOException;
-import java.net.SocketTimeoutException;
-import java.rmi.RemoteException;
-
+import com.alibaba.dubbo.common.URL;
+import com.alibaba.dubbo.rpc.RpcException;
+import com.alibaba.dubbo.rpc.protocol.AbstractProxyProtocol;
+import com.alibaba.dubbo.rpc.utils.ErrorCodeUtils;
 import org.springframework.remoting.RemoteAccessException;
 import org.springframework.remoting.rmi.RmiProxyFactoryBean;
 import org.springframework.remoting.rmi.RmiServiceExporter;
 
-import com.alibaba.dubbo.common.URL;
-import com.alibaba.dubbo.rpc.RpcException;
-import com.alibaba.dubbo.rpc.protocol.AbstractProxyProtocol;
+import java.rmi.RemoteException;
 
 /**
  * RmiProtocol.
@@ -84,14 +82,15 @@ public class RmiProtocol extends AbstractProxyProtocol {
         }
         if (e != null && e.getCause() != null) {
             Class<?> cls = e.getCause().getClass();
-            // 是根据测试Case发现的问题，对RpcException.setCode进行设置
-            if (SocketTimeoutException.class.equals(cls)) {
-                return RpcException.TIMEOUT_EXCEPTION;
-            } else if (IOException.class.isAssignableFrom(cls)) {
-                return RpcException.NETWORK_EXCEPTION;
-            } else if (ClassNotFoundException.class.isAssignableFrom(cls)) {
-                return RpcException.SERIALIZATION_EXCEPTION;
-            }
+//            // 是根据测试Case发现的问题，对RpcException.setCode进行设置
+//            if (SocketTimeoutException.class.equals(cls)) {
+//                return RpcException.TIMEOUT_EXCEPTION;
+//            } else if (IOException.class.isAssignableFrom(cls)) {
+//                return RpcException.NETWORK_EXCEPTION;
+//            } else if (ClassNotFoundException.class.isAssignableFrom(cls)) {
+//                return RpcException.SERIALIZATION_EXCEPTION;
+//            }
+            return ErrorCodeUtils.getErrorCode(e, cls);
         }
         return super.getErrorCode(e);
     }

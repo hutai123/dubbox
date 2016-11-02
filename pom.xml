@@ -20,7 +20,7 @@
 		<version>2.0</version> </parent> -->
 	<groupId>com.alibaba</groupId>
 	<artifactId>dubbo-parent</artifactId>
-	<version>2.8.4</version>
+	<version>2.8.4a</version>
 	<packaging>pom</packaging>
 	<name>${project.artifactId}</name>
 	<description>The parent project of dubbo</description>
@@ -84,47 +84,81 @@
 	</profiles>
 	<properties>
 		<!-- Common libs -->
-		<spring.bom.version>3.2.9.RELEASE</spring.bom.version>
-		<javassist_version>3.20.0-GA</javassist_version>
-		<netty_version>3.7.0.Final</netty_version>
+		<!--<spring.bom.version>3.2.9.RELEASE</spring.bom.version>-->
+		<spring.bom.version>4.1.1.RELEASE</spring.bom.version>
+		<javassist_version>3.15.0-GA</javassist_version>
+		<!--<netty_version>3.7.0.Final</netty_version>-->
+		<netty_version>3.9.9.Final</netty_version>
 		<mina_version>1.1.7</mina_version>
+		<!--<mina_version>2.0.9</mina_version>-->
 		<grizzly_version>2.1.4</grizzly_version>
-		<httpclient_version>4.2.1</httpclient_version>
+		<!--<httpclient_version>4.2.1</httpclient_version>-->
+		<httpclient_version>4.3.4</httpclient_version>
 		<hessian_lite_version>3.2.1-fixed-2</hessian_lite_version>
-		<xstream_version>1.4.1</xstream_version>
-		<fastjson_version>1.1.39</fastjson_version>
+		<!--<xstream_version>1.4.1</xstream_version>-->
+		<xstream_version>1.4.8</xstream_version>
+		<!--<fastjson_version>1.1.39</fastjson_version>-->
+		<fastjson_version>1.2.6</fastjson_version>
 		<bsf_version>3.1</bsf_version>
 		<sorcerer_version>0.8</sorcerer_version>
 		<zookeeper_version>3.4.6</zookeeper_version>
-		<zkclient_version>0.1</zkclient_version>
+		<!--<zkclient_version>0.1</zkclient_version>-->
+		<zkclient_version>0.9</zkclient_version>
 		<curator_version>2.5.0</curator_version>
 		<jedis_version>2.1.0</jedis_version>
 		<xmemcached_version>1.3.6</xmemcached_version>
-		<cxf_version>2.6.1</cxf_version>
+		<!--<cxf_version>2.6.1</cxf_version>-->
+		<cxf_version>3.1.5</cxf_version>
 		<thrift_version>0.8.0</thrift_version>
+		<thrift2_version>0.9.3</thrift2_version>
+		<avro_version>1.8.0</avro_version>
 		<jfreechart_version>1.0.13</jfreechart_version>
 		<hessian_version>4.0.7</hessian_version>
 		<servlet_version>3.1.0</servlet_version>
 		<jetty_version>6.1.26</jetty_version>
-		<validation_version>1.0.0.GA</validation_version>
-		<hibernate_validator_version>4.2.0.Final</hibernate_validator_version>
+		<validation_version>1.1.0.Final</validation_version>
+		<!--<hibernate_validator_version>4.2.0.Final</hibernate_validator_version>-->
+		<hibernate_validator_version>5.2.4.Final</hibernate_validator_version>
+		<javax.el-api_version>2.2.4</javax.el-api_version>
+		<javax.el_version>2.2.4</javax.el_version>
+		<velocity_version>1.7</velocity_version>
 		<jcache_version>0.4</jcache_version>
 		<sca_version>2.0-M5.1</sca_version>
 		<guice_version>3.0</guice_version>
 		<cglib_version>2.2</cglib_version>
-		<webx_version>3.0.8</webx_version>
-        <jackson_version>2.3.3</jackson_version>
+		<!--<webx_version>3.0.8</webx_version>-->
+		<webx_version>3.1.6</webx_version>
+        <!--<jackson_version>2.3.3</jackson_version>-->
+		<jackson_version>2.7.1</jackson_version>
+
         <commons_pool_version>1.6</commons_pool_version>
+		<commons-lang_version>2.6</commons-lang_version>
         <tomcat_embed_version>8.0.11</tomcat_embed_version>
 		<!-- Log libs -->
-		<slf4j_version>1.6.2</slf4j_version>
+		<!--<slf4j_version>1.6.2</slf4j_version>-->
+		<slf4j_version>1.7.15</slf4j_version>
 		<jcl_version>1.1</jcl_version>
-		<log4j_version>1.2.16</log4j_version>
-		<logback_version>1.0.6</logback_version>
+		<!--<log4j_version>1.2.16</log4j_version>-->
+		<log4j_version>1.2.17</log4j_version>
+		<!--<logback_version>1.0.6</logback_version>-->
+		<logback_version>1.1.5</logback_version>
+		<log4j2_version>2.5</log4j2_version>
 		<!-- Test libs -->
 		<junit_version>4.10</junit_version>
 		<easymock_version>3.0</easymock_version>
 		<jmockit_version>0.999.8</jmockit_version>
+
+		<!--rest-->
+		<rs-api_version>2.0.1</rs-api_version>
+		<resteasy-jaxrs_version>3.0.9.Final</resteasy-jaxrs_version>
+		<resteasy-client_version>3.0.16.Final</resteasy-client_version>
+		<resteasy-netty_version>3.0.14.Final</resteasy-netty_version>
+		<resteasy-jdk-http_version>3.0.14.Final</resteasy-jdk-http_version>
+		<resteasy-jackson-provider_version>3.0.14.Final</resteasy-jackson-provider_version>
+		<resteasy-jaxb-provider_version>3.0.16.Final</resteasy-jaxb-provider_version>
+		<kryo_version>2.24.0</kryo_version>
+		<kryo-serializers_version>0.37</kryo-serializers_version>
+		<fst_version>2.44</fst_version>
 		<!-- Build args -->
 		<!--<argline>-server -Xms64m -Xmx64m -XX:PermSize=64m -XX:MaxPermSize=64m</argline> -->
 		<skip_maven_deploy>false</skip_maven_deploy>
@@ -157,6 +191,8 @@
 		<maven_deploy_plugin_version>2.7</maven_deploy_plugin_version>
 
         <maven-surefire-plugin_version>2.17</maven-surefire-plugin_version>
+		<maven-jetty-plugin_version>8.1.15.v20140411</maven-jetty-plugin_version>
+		<avro_maven_plugin_version>1.8.0</avro_maven_plugin_version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -224,7 +260,7 @@
 				<version>${zookeeper_version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.github.sgroschupf</groupId>
+				<groupId>com.101tec</groupId>
 				<artifactId>zkclient</artifactId>
 				<version>${zkclient_version}</version>
 			</dependency>
@@ -259,6 +295,16 @@
 				<version>${thrift_version}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.apache.avro</groupId>
+				<artifactId>avro</artifactId>
+				<version>${avro_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.avro</groupId>
+				<artifactId>avro-ipc</artifactId>
+				<version>${avro_version}</version>
+			</dependency>
+			<dependency>
 				<groupId>jfree</groupId>
 				<artifactId>jfreechart</artifactId>
 				<version>${jfreechart_version}</version>
@@ -289,9 +335,24 @@
 				<version>${hibernate_validator_version}</version>
 			</dependency>
 			<dependency>
+				<groupId>javax.el</groupId>
+				<artifactId>javax.el-api</artifactId>
+				<version>${javax.el-api_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.glassfish.web</groupId>
+				<artifactId>javax.el</artifactId>
+				<version>${javax.el_version}</version>
+			</dependency>
+			<dependency>
 				<groupId>javax.cache</groupId>
 				<artifactId>cache-api</artifactId>
 				<version>${jcache_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.velocity</groupId>
+				<artifactId>velocity</artifactId>
+				<version>${velocity_version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.tuscany.sca</groupId>
@@ -344,6 +405,16 @@
 				<artifactId>logback-classic</artifactId>
 				<version>${logback_version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-core</artifactId>
+				<version>${log4j2_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-slf4j-impl</artifactId>
+				<version>${log4j2_version}</version>
+			</dependency>
 			<!-- Test libs -->
 			<dependency>
 				<groupId>junit</groupId>
@@ -375,6 +446,11 @@
 				<version>${cglib_version}</version>
 			</dependency>
 			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+				<version>${commons-lang_version}</version>
+			</dependency>
+			<dependency>
 				<groupId>commons-pool</groupId>
 				<artifactId>commons-pool</artifactId>
 				<version>${commons_pool_version}</version>
@@ -394,37 +470,37 @@
             <dependency>
                 <groupId>javax.ws.rs</groupId>
                 <artifactId>javax.ws.rs-api</artifactId>
-                <version>2.0</version>
+                <version>${rs-api_version}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-jaxrs</artifactId>
-                <version>3.0.7.Final</version>
+                <version>${resteasy-jaxrs_version}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-client</artifactId>
-                <version>3.0.7.Final</version>
+                <version>${resteasy-jaxrs_version}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-netty</artifactId>
-                <version>3.0.7.Final</version>
+                <version>${resteasy-netty_version}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-jdk-http</artifactId>
-                <version>3.0.7.Final</version>
+                <version>${resteasy-jdk-http_version}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-jackson-provider</artifactId>
-                <version>3.0.7.Final</version>
+                <version>${resteasy-jackson-provider_version}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-jaxb-provider</artifactId>
-                <version>3.0.7.Final</version>
+                <version>${resteasy-jaxb-provider_version}</version>
             </dependency>
             <dependency>
                 <groupId>com.esotericsoftware.kryo</groupId>
@@ -434,12 +510,12 @@
             <dependency>
                 <groupId>de.javakaffee</groupId>
                 <artifactId>kryo-serializers</artifactId>
-                <version>0.26</version>
+                <version>${kryo-serializers_version}</version>
             </dependency>
             <dependency>
                 <groupId>de.ruedigermoeller</groupId>
                 <artifactId>fst</artifactId>
-                <version>1.55</version>
+                <version>${fst_version}</version>
             </dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -489,77 +565,77 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-surefire-plugin_version}</version>
-				<configuration>
-					<useSystemClassLoader>true</useSystemClassLoader>
-					<forkMode>once</forkMode>
-					<argLine>${argline}</argLine>
-					<systemProperties>
-						<!-- common shared -->
-						<property>
-							<name>transporter</name>
-							<value>${transporter}</value>
-						</property>
-						<property>
-							<name>serialization</name>
-							<value>${serialization}</value>
-						</property>
-						<!-- server side -->
-						<property>
-							<name>port</name>
-							<value>${port}</value>
-						</property>
-						<property>
-							<name>threadpool</name>
-							<value>${threadpool}</value>
-						</property>
-						<property>
-							<name>threads</name>
-							<value>${threads}</value>
-						</property>
-						<property>
-							<name>iothreads</name>
-							<value>${iothreads}</value>
-						</property>
-						<!-- client side -->
-						<property>
-							<name>server</name>
-							<value>${server}</value>
-						</property>
-						<property>
-							<name>timeout</name>
-							<value>${timeout}</value>
-						</property>
-						<property>
-							<name>length</name>
-							<value>${length}</value>
-						</property>
-						<property>
-							<name>connections</name>
-							<value>${connections}</value>
-						</property>
-						<property>
-							<name>base</name>
-							<value>${base}</value>
-						</property>
-						<property>
-							<name>concurrent</name>
-							<value>${concurrent}</value>
-						</property>
-						<property>
-							<name>runs</name>
-							<value>${runs}</value>
-						</property>
-						<property>
-							<name>onerror</name>
-							<value>${onerror}</value>
-						</property>
-					</systemProperties>
-				</configuration>
-			</plugin>
+			<!--<plugin>-->
+				<!--<groupId>org.apache.maven.plugins</groupId>-->
+				<!--<artifactId>maven-surefire-plugin</artifactId>-->
+                <!--<version>${maven-surefire-plugin_version}</version>-->
+				<!--<configuration>-->
+					<!--<useSystemClassLoader>true</useSystemClassLoader>-->
+					<!--<forkMode>once</forkMode>-->
+					<!--<argLine>${argline}</argLine>-->
+					<!--<systemProperties>-->
+						<!--&lt;!&ndash; common shared &ndash;&gt;-->
+						<!--<property>-->
+							<!--<name>transporter</name>-->
+							<!--<value>${transporter}</value>-->
+						<!--</property>-->
+						<!--<property>-->
+							<!--<name>serialization</name>-->
+							<!--<value>${serialization}</value>-->
+						<!--</property>-->
+						<!--&lt;!&ndash; server side &ndash;&gt;-->
+						<!--<property>-->
+							<!--<name>port</name>-->
+							<!--<value>${port}</value>-->
+						<!--</property>-->
+						<!--<property>-->
+							<!--<name>threadpool</name>-->
+							<!--<value>${threadpool}</value>-->
+						<!--</property>-->
+						<!--<property>-->
+							<!--<name>threads</name>-->
+							<!--<value>${threads}</value>-->
+						<!--</property>-->
+						<!--<property>-->
+							<!--<name>iothreads</name>-->
+							<!--<value>${iothreads}</value>-->
+						<!--</property>-->
+						<!--&lt;!&ndash; client side &ndash;&gt;-->
+						<!--<property>-->
+							<!--<name>server</name>-->
+							<!--<value>${server}</value>-->
+						<!--</property>-->
+						<!--<property>-->
+							<!--<name>timeout</name>-->
+							<!--<value>${timeout}</value>-->
+						<!--</property>-->
+						<!--<property>-->
+							<!--<name>length</name>-->
+							<!--<value>${length}</value>-->
+						<!--</property>-->
+						<!--<property>-->
+							<!--<name>connections</name>-->
+							<!--<value>${connections}</value>-->
+						<!--</property>-->
+						<!--<property>-->
+							<!--<name>base</name>-->
+							<!--<value>${base}</value>-->
+						<!--</property>-->
+						<!--<property>-->
+							<!--<name>concurrent</name>-->
+							<!--<value>${concurrent}</value>-->
+						<!--</property>-->
+						<!--<property>-->
+							<!--<name>runs</name>-->
+							<!--<value>${runs}</value>-->
+						<!--</property>-->
+						<!--<property>-->
+							<!--<name>onerror</name>-->
+							<!--<value>${onerror}</value>-->
+						<!--</property>-->
+					<!--</systemProperties>-->
+				<!--</configuration>-->
+			<!--</plugin>-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
@@ -600,9 +676,9 @@
 						<source>${java_source_version}</source>
 						<target>${java_target_version}</target>
 						<encoding>${file_encoding}</encoding>
-                        <compilerArgs>
-                            <arg>-XX:MaxPermSize=512M</arg>
-                        </compilerArgs>
+                        <!--<compilerArgs>-->
+                            <!--<arg>-XX:MaxPermSize=512M</arg>-->
+                        <!--</compilerArgs>-->
 					</configuration>
 				</plugin>
 				<!--This plugin's configuration is used to store Eclipse m2e settings

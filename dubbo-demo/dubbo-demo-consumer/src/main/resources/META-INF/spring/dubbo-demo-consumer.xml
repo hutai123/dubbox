@@ -6,8 +6,13 @@
 	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <dubbo:application name="demo-consumer" owner="programmer" organization="dubbox"/>
-
-    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
+	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+        <property name="location" value="file:../conf/dubbo.properties" />
+    </bean>
+    
+    <dubbo:registry address="${dubbo.registry.address}"/>
 
     <!--uncomment this if you want to test dubbo's monitor-->
     <!--<dubbo:monitor protocol="registry"/>-->

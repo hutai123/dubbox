@@ -15,20 +15,16 @@
  */
 package com.alibaba.dubbo.common.utils;
 
+import com.alibaba.dubbo.common.URL;
+import com.alibaba.dubbo.common.logger.Logger;
+import com.alibaba.dubbo.common.logger.LoggerFactory;
+
 import java.io.IOException;
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.net.NetworkInterface;
-import java.net.ServerSocket;
-import java.net.UnknownHostException;
+import java.net.*;
 import java.util.Enumeration;
 import java.util.Map;
 import java.util.Random;
 import java.util.regex.Pattern;
-
-import com.alibaba.dubbo.common.URL;
-import com.alibaba.dubbo.common.logger.Logger;
-import com.alibaba.dubbo.common.logger.LoggerFactory;
 
 /**
  * IP and Port Helper for RPC, 
@@ -131,6 +127,19 @@ public class NetUtils {
     
     public static boolean isValidLocalHost(String host) {
     	return ! isInvalidLocalHost(host);
+    }
+
+
+    public static boolean isMulticastAddress(String ip) {
+        int i = ip.indexOf('.');
+        if (i > 0) {
+            String prefix = ip.substring(0, i);
+            if (StringUtils.isInteger(prefix)) {
+                int p = Integer.parseInt(prefix);
+                return p >= 224 && p <= 239;
+            }
+        }
+        return false;
     }
 
     public static InetSocketAddress getLocalSocketAddress(String host, int port) {

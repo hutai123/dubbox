@@ -15,25 +15,6 @@
  */
 package com.alibaba.dubbo.registry.multicast;
 
-import java.io.IOException;
-import java.net.DatagramPacket;
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.net.MulticastSocket;
-import java.net.Socket;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
-
 import com.alibaba.dubbo.common.Constants;
 import com.alibaba.dubbo.common.URL;
 import com.alibaba.dubbo.common.logger.Logger;
@@ -41,10 +22,14 @@ import com.alibaba.dubbo.common.logger.LoggerFactory;
 import com.alibaba.dubbo.common.utils.ConcurrentHashSet;
 import com.alibaba.dubbo.common.utils.NamedThreadFactory;
 import com.alibaba.dubbo.common.utils.NetUtils;
-import com.alibaba.dubbo.common.utils.StringUtils;
 import com.alibaba.dubbo.common.utils.UrlUtils;
 import com.alibaba.dubbo.registry.NotifyListener;
 import com.alibaba.dubbo.registry.support.FailbackRegistry;
+
+import java.io.IOException;
+import java.net.*;
+import java.util.*;
+import java.util.concurrent.*;
 
 /**
  * MulticastRegistry
@@ -79,7 +64,7 @@ public class MulticastRegistry extends FailbackRegistry {
         if (url.isAnyHost()) {
     		throw new IllegalStateException("registry address == null");
     	}
-        if (! isMulticastAddress(url.getHost())) {
+        if (! NetUtils.isMulticastAddress(url.getHost())) {
             throw new IllegalArgumentException("Invalid multicast address " + url.getHost() + ", scope: 224.0.0.0 - 239.255.255.255");
         }
         try {
@@ -131,17 +116,17 @@ public class MulticastRegistry extends FailbackRegistry {
         }
     }
     
-    private static boolean isMulticastAddress(String ip) {
-        int i = ip.indexOf('.');
-        if (i > 0) {
-            String prefix = ip.substring(0, i);
-            if (StringUtils.isInteger(prefix)) {
-                int p = Integer.parseInt(prefix);
-                return p >= 224 && p <= 239;
-            }
-        }
-        return false;
-    }
+//    private static boolean isMulticastAddress(String ip) {
+//        int i = ip.indexOf('.');
+//        if (i > 0) {
+//            String prefix = ip.substring(0, i);
+//            if (StringUtils.isInteger(prefix)) {
+//                int p = Integer.parseInt(prefix);
+//                return p >= 224 && p <= 239;
+//            }
+//        }
+//        return false;
+//    }
     
     private void clean() {
         if (admin) {

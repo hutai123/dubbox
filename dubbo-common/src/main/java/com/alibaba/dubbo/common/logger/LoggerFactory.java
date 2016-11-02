@@ -15,17 +15,18 @@
  */
 package com.alibaba.dubbo.common.logger;
 
-import java.io.File;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-
 import com.alibaba.dubbo.common.extension.ExtensionLoader;
 import com.alibaba.dubbo.common.logger.jcl.JclLoggerAdapter;
 import com.alibaba.dubbo.common.logger.jdk.JdkLoggerAdapter;
 import com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter;
+import com.alibaba.dubbo.common.logger.log4j2.Log4j2LoggerAdapter;
 import com.alibaba.dubbo.common.logger.slf4j.Slf4jLoggerAdapter;
 import com.alibaba.dubbo.common.logger.support.FailsafeLogger;
+
+import java.io.File;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 /**
  * 日志输出器工厂
@@ -50,11 +51,13 @@ public class LoggerFactory {
     		setLoggerAdapter(new JclLoggerAdapter());
     	} else if ("log4j".equals(logger)) {
     		setLoggerAdapter(new Log4jLoggerAdapter());
-    	} else if ("jdk".equals(logger)) {
-    		setLoggerAdapter(new JdkLoggerAdapter());
-    	} else {
-    		try {
-    			setLoggerAdapter(new Log4jLoggerAdapter());
+        } else if ("log4j2".equals(logger)) {
+            setLoggerAdapter(new Log4j2LoggerAdapter());
+        } else if ("jdk".equals(logger)) {
+            setLoggerAdapter(new JdkLoggerAdapter());
+        } else {
+            try {
+                setLoggerAdapter(new Log4j2LoggerAdapter());//默认日志类改成log4j2（杨俊明）
             } catch (Throwable e1) {
                 try {
                 	setLoggerAdapter(new Slf4jLoggerAdapter());

@@ -15,17 +15,17 @@
  */
 package com.alibaba.dubbo.remoting.p2p.support;
 
+import com.alibaba.dubbo.common.URL;
+import com.alibaba.dubbo.common.utils.NetUtils;
+import com.alibaba.dubbo.remoting.ChannelHandler;
+import com.alibaba.dubbo.remoting.RemotingException;
+import com.alibaba.dubbo.remoting.p2p.Peer;
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.MulticastSocket;
-
-import com.alibaba.dubbo.common.URL;
-import com.alibaba.dubbo.common.utils.StringUtils;
-import com.alibaba.dubbo.remoting.ChannelHandler;
-import com.alibaba.dubbo.remoting.RemotingException;
-import com.alibaba.dubbo.remoting.p2p.Peer;
 
 /**
  * MulticastGroup
@@ -44,7 +44,7 @@ public class MulticastGroup extends AbstractGroup {
 
     public MulticastGroup(URL url) {
         super(url);
-        if (! isMulticastAddress(url.getHost())) {
+        if (!NetUtils.isMulticastAddress(url.getHost())) {
             throw new IllegalArgumentException("Invalid multicast address " + url.getHost() + ", scope: 224.0.0.0 - 239.255.255.255");
         }
         try {
@@ -73,17 +73,17 @@ public class MulticastGroup extends AbstractGroup {
         }
     }
     
-    private static boolean isMulticastAddress(String ip) {
-        int i = ip.indexOf('.');
-        if (i > 0) {
-            String prefix = ip.substring(0, i);
-            if (StringUtils.isInteger(prefix)) {
-                int p = Integer.parseInt(prefix);
-                return p >= 224 && p <= 239;
-            }
-        }
-        return false;
-    }
+//    private static boolean isMulticastAddress(String ip) {
+//        int i = ip.indexOf('.');
+//        if (i > 0) {
+//            String prefix = ip.substring(0, i);
+//            if (StringUtils.isInteger(prefix)) {
+//                int p = Integer.parseInt(prefix);
+//                return p >= 224 && p <= 239;
+//            }
+//        }
+//        return false;
+//    }
     
     private void send(String msg) throws RemotingException {
         DatagramPacket hi = new DatagramPacket(msg.getBytes(), msg.length(), mutilcastAddress, mutilcastSocket.getLocalPort());

@@ -7,6 +7,14 @@
  */
 package com.alibaba.dubbo.governance.web.common.module.screen;
 
+import com.alibaba.dubbo.common.utils.CompatibleTypeUtils;
+import com.alibaba.dubbo.governance.biz.common.i18n.MessageResourceService;
+import com.alibaba.dubbo.governance.web.common.pulltool.RootContextPath;
+import com.alibaba.dubbo.governance.web.util.WebConstants;
+import com.alibaba.dubbo.registry.common.domain.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -14,23 +22,14 @@ import java.lang.reflect.Modifier;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.alibaba.dubbo.common.utils.CompatibleTypeUtils;
-import com.alibaba.dubbo.governance.biz.common.i18n.MessageResourceService;
-import com.alibaba.dubbo.governance.web.common.pulltool.RootContextPath;
-import com.alibaba.dubbo.governance.web.util.WebConstants;
-import com.alibaba.dubbo.registry.common.domain.User;
-
 /**
  * BaseScreen
  * 
  * @author william.liangf
  */
 public abstract class Restful {
-	
-	protected static final Logger logger = Logger.getLogger(Restful.class);
+
+    protected static final Logger logger = LoggerFactory.getLogger(Restful.class);
 
 	protected static final Pattern SPACE_SPLIT_PATTERN = Pattern.compile("\\s+");
 
@@ -72,8 +71,7 @@ public abstract class Restful {
             String id = (String) context.get("id");
             if(id == null || id.length() == 0) {
                 method = "index";
-            }
-            else {
+            } else {
                 method = "show";
             }
         }

@@ -32,6 +32,8 @@ Dubbox adds features like RESTful remoting, Kyro/FST serialization, etc to the p
 
 * **修正了dubbo的bug** 包括配置、序列化、管理界面等等的bug。
 
+* **支持原生thrift、avro等跨语言的rpc框架**(2.8.4a版开始支持)，只是非java语言的client调用dubbo的thrift/avro服务时，consumer无法享受dubbo的治理功能
+
 **注：dubbox和dubbo 2.x是兼容的，没有改变dubbo的任何已有的功能和配置方式（除了升级了spring之类的版本）**
 
 ## 文档资料
@@ -70,6 +72,11 @@ Dubbox adds features like RESTful remoting, Kyro/FST serialization, etc to the p
     * 修正Dubbo管理界面中没有consumer时出现空指针异常（马金凯）
     * 修正@Reference annotation中protocol设置不起作用的bug（沈理）
     * 修正@Reference annotation放在setter方法上即会出错的bug（Dylan）
+* **dubbox-2.8.4a**：
+    * 升级spring到4.x,其它一些依赖组件也一并进行了版本升级(杨俊明)
+    * 增加log4j2支持,原来一些硬编码依赖log4j的代码,改为依赖slf4j,以便兼容其它一些主流日志组件(杨俊明)
+    * 增加原生thrift支持,升级thrift到0.9.3,为避免与dubbo原来的thrift实现命名冲突，新增的原生thrift协议，协议名称改为thrift2(杨俊明)
+    * 增加hadoop avro支持(杨俊明)
 
 ## 依赖
 
